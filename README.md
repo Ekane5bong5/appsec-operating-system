@@ -1,8 +1,8 @@
 # AppSec Operating System
 
-This repository documents a structured 6–8 month Application Security mastery program focused on **engineering judgment**, not tool usage.
+This repository documents a structured Application Security mastery program focused on **engineering judgment**, not tool usage.
 
-The goal is to develop the skills expected of senior AppSec engineers at high-bar organizations (FAANG / Big Tech / regulated enterprise).
+The goal is to develop the skills expected of senior AppSec engineers at high-bar organizations.
 
 ---
 
