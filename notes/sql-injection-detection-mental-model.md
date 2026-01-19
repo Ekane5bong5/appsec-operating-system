@@ -2,24 +2,24 @@
 
 ## Core Question
 
-How do I know SQL injection exists **before** I ever see a payload, query, error message, or leaked data?
+How do I know SQL injection exists before I ever see a payload, query, error message, or leaked data?
 
 ---
 
 ## Behavioral Proof of SQL Injection
 
-SQL injection can be identified through **deterministic and repeatable application behavior changes** that occur when user-controlled input is modified.
+SQL injection can be identified through reliable application behavior changes that can be reproduced that occur when user-controlled input is modified.
 
 If changes to externally supplied input cause differences in application behavior that cannot occur unless backend query logic is being influenced, then SQL injection exists — regardless of visibility into SQL execution.
 
-The key signal is not data extraction, but **evaluation**.
+The key signal is not data extraction, but evaluation.
 
 ---
 
 ## Why Payloads Are Irrelevant to Detection
 
-Payloads are merely probes used to test hypotheses.  
-They are not the vulnerability.
+Payloads are merely tools used to test hypotheses.  
+They are not the vulnerability itself.
 
 The vulnerability exists at the moment untrusted input is allowed to influence SQL query structure or logical evaluation. Once input participates in query execution rather than being treated strictly as data, structural failure has already occurred.
 
@@ -37,7 +37,7 @@ Examples of such behavioral signals include:
 - Execution failures or recoveries
 - Timing or flow changes
 
-In these cases, the application itself becomes a **behavioral oracle**, revealing whether backend query conditions evaluated as true or false.
+In these cases, the application itself becomes a application behavior serves as the feedback mechanism, revealing whether backend query conditions evaluated as true or false.
 
 Direct query visibility is unnecessary.
 
@@ -69,6 +69,6 @@ SQL injection exists wherever execution context is shared with untrusted input, 
 
 ---
 
-## Final Rule
+## SQLi Core Statement
 
 If user-controlled input can influence how a database query is **evaluated**, producing observable differences in application behavior, then SQL injection exists — even when queries, errors, and data are never exposed.
