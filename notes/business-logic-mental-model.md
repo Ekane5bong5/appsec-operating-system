@@ -52,7 +52,7 @@
 
 ---
 
-## Example: Valid requests, invalid outcome
+## Example Of Business Logic Failure: Valid requests, invalid outcome
 
 **Feature**  
 A bank application allows users to transfer funds between accounts through a multi-step workflow.
