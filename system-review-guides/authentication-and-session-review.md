@@ -95,6 +95,10 @@ Logout must revoke trust server-side, not just delete cookies client-side.
   - “remember me” tokens
 - Is logout “global” (all devices) available for higher-risk applications?
 - Are sensitive pages protected from browser caching after logout (no back-button data exposure)?
+- - If a valid session is replayed or reconstructed, what actions remain possible?
+- Are identity-changing actions protected against session replay?
+- Does possession of a valid session allow modification of account recovery attributes?
+
 
 ---
 
@@ -164,6 +168,8 @@ If the vulnerability is “the application trusts the wrong state,” the fix is
   - credential stuffing
   - session persistence after reset/logout
 - Logging/monitoring plan for session anomalies (without logging raw session IDs)
+
+- 
 
 ---
 
