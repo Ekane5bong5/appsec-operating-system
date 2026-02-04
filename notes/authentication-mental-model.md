@@ -153,6 +153,24 @@ Key questions include:
 
 Authentication issues are validated through behavior, not payloads.
 
+## Calibration Example: Session Trust vs Authorization
+
+Scenario:
+A valid session is replayed or reconstructed and used to perform identity-changing actions.
+
+Key observation:
+Possession of a valid session identifier proves prior authentication,
+but does not prove present authorization or user intent.
+
+Failure mode:
+The system treated remembered authentication state as sufficient authority.
+
+Required controls:
+- Per-action authorization checks
+- Step-up authentication for identity-changing actions
+- Server-side ownership verification
+
+
 ---
 
 ## Calibration Check
