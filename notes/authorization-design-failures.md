@@ -8,11 +8,11 @@ It is written from the perspective of an AppSec engineer reviewing system archit
 ---
 
 ## Where Access Control Should Live
-Authorization must be enforced **server-side at the point where the protected resource or privileged action is executed**.
+Authorization must be enforced **server-side at the point where the protected resource or privileged action is executed**.(Authorization must be enforced at the sink where the action is being performed)
 
 Specifically:
 - Object access must be authorized at **object retrieval time**
-- User-scoped data must be resolved from the **authenticated session**, not request parameters
+- User-scoped data must be resolved from the **authenticated session**, not request parameters(user scoped data needs to come from req.userSession and not Req.query.user)
 - Privileged functionality must enforce **function-level authorization inside the backend**
 
 Authorization must live with:
