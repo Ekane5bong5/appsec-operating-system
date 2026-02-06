@@ -24,6 +24,9 @@ It is optimized to detect object-level, identity-scoping, and function-level aut
   - or implicitly trust the identifier?
 - What happens if a user guesses or enumerates another object ID?
 - Is object existence ever confused with authorization?
+- Is the system enforcing the invariant:
+"The authenticated user must equal the object owner for this operation"?
+
 
 ---
 
@@ -31,6 +34,16 @@ It is optimized to detect object-level, identity-scoping, and function-level aut
 - Is user context derived from the authenticated session or token?
 - Are client-supplied identity parameters (`userId`, `accountId`, etc.) ignored or strictly validated?
 - Can a user act on behalf of another user by modifying request parameters?
+  
+**Trust Assumption Propagation**
+
+Does the system assume that:
+- an authenticated user may access any referenced object?
+- a valid session implies ownership of requested resources?
+- the ability to reference an object implies permission to access it?
+
+Red flag:
+Client input or session presence is treated as proof of authorization.
 
 ---
 
@@ -48,6 +61,16 @@ It is optimized to detect object-level, identity-scoping, and function-level aut
 - Does authorization occur at the point where the resource is accessed or the action is executed?
 - Is authorization enforced server-side on every request?
 - Is any access decision delegated to the client, request structure, or routing metadata?
+  
+**##Authorization Ordering (Critical)**
+
+Is authorization enforced before the object is retrieved or processed?
+Does the system ever load an object first and then decide whether access is allowed?
+Are redirects, UI restrictions, or response suppression used instead of access denial?
+
+Red flag:
+Authorization decisions made after object retrieval or execution.
+
 
 ---
 
